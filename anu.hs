@@ -186,3 +186,7 @@ diffraction_limit l d = l / d
 
 -- r is radius of planet, d is distance to star
 brightness_ratio r d = 0.25 * (r / d) * (r / d)
+
+-- direct imaging
+
+lum_and_temp_to_r l t = sqrt $ (boltzman * t * t * t * t) / (4 * pi * l)
