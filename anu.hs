@@ -141,6 +141,9 @@ reflex_period_to_v mp ms p r = (2 * pi * r * mp) / (p * ms)
 
 -- note true velocity = v * (sin i), where i is angle of inclination
 
+reflex_period_to_mp v p ms = (v * p * ms) / (2 * pi * r)
+                   where r = reflex_period_to_r ms p
+
 -- radius of star motion proportional to m * r
 reflex_star_radius mp ms rp = (rp * mp) / ms
 
