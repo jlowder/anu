@@ -192,4 +192,7 @@ brightness_ratio r d = 0.25 * (r / d) * (r / d)
 
 -- direct imaging
 
-lum_and_temp_to_r l t = sqrt $ (boltzman * t * t * t * t) / (4 * pi * l)
+lum_and_temp_to_r l t = sqrt $ l / (boltzman * t * t * t * t * 4 * pi)
+
+est_grav_energy m r = (g * m * m) / (4 * r)
+
