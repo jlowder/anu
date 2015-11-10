@@ -196,3 +196,19 @@ lum_and_temp_to_r l t = sqrt $ l / (boltzman * t * t * t * t * 4 * pi)
 
 est_grav_energy m r = (g * m * m) / (4 * r)
 
+-- earth-like planets
+
+gas_vel t m = sqrt $ (3 * boltzman * t) / m
+
+mass_h = 1.66e-27
+
+mass_o2 = 32.0 * mass_h
+
+kinetic_energy m v = 0.5 * m * v * v
+
+escape_vel m r = sqrt $ (2 * g * m) / r
+
+planck_constant = 6.62e-34
+
+energy_per_photon l = planck_constant * mu
+    where mu = c / l
