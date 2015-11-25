@@ -198,11 +198,13 @@ est_grav_energy m r = (g * m * m) / (4 * r)
 
 -- earth-like planets
 
-gas_vel t m = sqrt $ (3 * boltzman * t) / m
+boltzman_constant = 1.38e-23
+
+gas_vel t m = sqrt $ (3 * boltzman_constant * t) / m
 
 mass_h = 1.66e-27
 
-mass_o2 = 32.0 * mass_h
+mass_o = 5.31e-26
 
 kinetic_energy m v = 0.5 * m * v * v
 
