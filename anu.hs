@@ -24,8 +24,6 @@ rad deg = (deg / 180) * pi
 
 deg rad = (180 * rad) / pi
 
-theta2r th dist = th * dist
-
 arcsec = arcmin / 60
 
 arcmin = 1 / 60
@@ -37,6 +35,8 @@ rad2arcsec r = (deg r) / arcsec
 arcsec2rad as = rad (as * arcsec)
 
 theta2dist th r = r / th
+
+theta2radius th dist = th * dist
 
 m2au m = m / au
 
@@ -214,3 +214,46 @@ planck_constant = 6.62e-34
 
 energy_per_photon l = planck_constant * mu
     where mu = c / l
+
+-- astro-3x violent universe
+
+x3hq2_1 r2 = (4 * pi * pi * r1 * (r1 + r2) * (r1 + r2)) / (g * p * p)
+  where  p = 100.0 * 365 * 86400
+         r1 = 1e12 
+
+x3hq2_2 r2 = m1 * r1 / r2
+  where m1 = 3e30
+        r1 = 1e12
+
+x3hq2_3 = map x3hq2_1 [1e12 + x*1e11 | x <- [0..29]]
+
+x3hq2_4 = map x3hq2_2 [1e12 + x*1e11 | x <- [0..29]]
+
+-- [1e12 + x*1e11 | x <- [0..29]] !! 21, feed that into either equation
+
+lum r t = a * boltzman * t ** 4
+   where a = 4 * pi * r * r
+
+x3hq3_1 = ra * (ta / tb) * (ta / tb) * sqrt (1 / 500)
+   where ra = 700000 * 1000.0
+         ta = 6000
+         tb = 10000
+
+-- classical novae
+
+thomson_cross_section = 6.7e-29
+
+mass_proton = 1.67e-27
+
+eddington_limit_lum m = (4 * pi * g * m * mass_proton * c) / thomson_cross_section
+
+-- astro3x hq 4.2
+
+eddington_limit_mass l = (thomson_cross_section * l) / (4 * pi * g * mass_proton * c)
+
+energy_to_flux e s = e / s
+
+x3hq4_2 = eddington_limit_mass lum
+   where lum  = energy_to_flux e week
+         week = 7 * 86400
+         e    = 1e44
