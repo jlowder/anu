@@ -257,3 +257,8 @@ x3hq4_2 = eddington_limit_mass lum
    where lum  = energy_to_flux e week
          week = 7 * 86400
          e    = 1e44
+
+-- thermonuclear supernovae, violent universe chapter 5
+
+explosion_velocity absorption_lambda emission_lambda = c * (delta_lambda / emission_lambda)
+  where delta_lambda = absorption_lambda - emission_lambda
