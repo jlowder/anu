@@ -1,6 +1,6 @@
 -- anu-astro1x
 
--- flux and luminosity
+-- Flux and luminosity
 
 lum2flux l r = l / (4 * pi * r * r)
 
@@ -262,3 +262,18 @@ x3hq4_2 = eddington_limit_mass lum
 
 explosion_velocity absorption_lambda emission_lambda = c * (delta_lambda / emission_lambda)
   where delta_lambda = absorption_lambda - emission_lambda
+
+-- core collapse supernovae, chaper 6
+
+neutrino_cross_section = 1e-47
+
+neutrinos_per_supernova = 1e57
+
+neutrino_flux d = neutrinos_per_supernova / (4 * pi * d * d)
+
+hq61 = (100 / ((mass / mpa) * neutrino_cross_section)) / 1000000
+   where mpa = 3e-25
+         mass = 1000000
+
+hq62 = hq61 * (4 * pi * d * d)
+   where d = 778 * 1000 * parsec
