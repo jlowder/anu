@@ -289,3 +289,12 @@ hq72 = 1000 * period_limit d
    where d = m / ((4 / 3) * pi * r * r * r)
          m = 2.8e30
          r = 10000
+
+-- relativity chapter 8
+
+time_prime v x t = gamma * ((t + (v * x)) / (c * c))
+  where gamma = 1.0 / sqrt ( 1.0 - (v * v) / (c * c))
+
+hq81 d v = d / (v * gamma)
+   where gamma = 1.0 / sqrt (1.0 - (v * v) / (c * c))
+
