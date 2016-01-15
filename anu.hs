@@ -298,3 +298,6 @@ time_prime v x t = gamma * ((t + (v * x)) / (c * c))
 hq81 d v = d / (v * gamma)
    where gamma = 1.0 / sqrt (1.0 - (v * v) / (c * c))
 
+-- black holes chapter 9
+
+super_luminal theta beta = (beta * sin (rad theta)) / (1.0 - beta * cos (rad theta))
