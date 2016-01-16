@@ -110,7 +110,7 @@ deltaflux theta = 4.0 / (theta * theta)
 
 -- Hertzsprung-Russell
 
-mass v r = (v * v * r) / g
+hr_mass v r = (v * v * r) / g
 
 -- matthew bate, university of exeter
 
@@ -234,6 +234,8 @@ x3hq2_4 = map x3hq2_2 [1e12 + x*1e11 | x <- [0..29]]
 lum r t = a * boltzman * t ** 4
    where a = 4 * pi * r * r
 
+black_body_r l t = sqrt $ l / (4 * pi * boltzman * t ** 4)
+
 x3hq3_1 = ra * (ta / tb) * (ta / tb) * sqrt (1 / 500)
    where ra = 700000 * 1000.0
          ta = 6000
@@ -277,3 +279,24 @@ hq61 = (100 / ((mass / mpa) * neutrino_cross_section)) / 1000000
 
 hq62 = hq61 * (4 * pi * d * d)
    where d = 778 * 1000 * parsec
+
+x7 = (hr_mass v r) / solar_mass
+   where v = 800000
+         r = 2 * au
+         solar_mass = 1.989e30
+
+x8 = ((16 * pi * pi * r * r * r) / (g * p * p)) / solar_mass
+  where v = period_to_vel r p
+        r = 0.5 * au
+        p = 86400 * 8.6
+        solar_mass = 1.989e30
+
+x12 = ((e * r) / (m * g)) / solar_mass
+   where e = 5e47
+         r = 15000 * 1000
+         m = 1000 * solar_mass
+         solar_mass = 1.989e30
+
+x13 = m * c * c
+  where m = 0.01 * (1000 * solar_mass)
+        solar_mass = 1.989e30
