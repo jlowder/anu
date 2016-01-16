@@ -265,7 +265,7 @@ x3hq4_2 = eddington_limit_mass lum
 explosion_velocity absorption_lambda emission_lambda = c * (delta_lambda / emission_lambda)
   where delta_lambda = absorption_lambda - emission_lambda
 
--- core collapse supernovae, chaper 6
+-- core collapse supernovae, chapter 6
 
 neutrino_cross_section = 1e-47
 
@@ -279,6 +279,30 @@ hq61 = (100 / ((mass / mpa) * neutrino_cross_section)) / 1000000
 
 hq62 = hq61 * (4 * pi * d * d)
    where d = 778 * 1000 * parsec
+
+-- neutron stars, chapter 7
+
+-- min radius for an object rotating as fast it can without tearing itself apart
+rotation_limit_r p m = ((g * m * p * p) / (4 * pi * pi)) ** (1/3)
+
+period_limit d = sqrt $ (3 * pi) / (g * d)
+
+hq72 = 1000 * period_limit d 
+   where d = m / ((4 / 3) * pi * r * r * r)
+         m = 2.8e30
+         r = 10000
+
+-- relativity chapter 8
+
+time_prime v x t = gamma * ((t + (v * x)) / (c * c))
+  where gamma = 1.0 / sqrt ( 1.0 - (v * v) / (c * c))
+
+hq81 d v = d / (v * gamma)
+   where gamma = 1.0 / sqrt (1.0 - (v * v) / (c * c))
+
+-- black holes chapter 9
+
+super_luminal theta beta = (beta * sin (rad theta)) / (1.0 - beta * cos (rad theta))
 
 x7 = (hr_mass v r) / solar_mass
    where v = 800000
