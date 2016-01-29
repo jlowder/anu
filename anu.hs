@@ -324,3 +324,14 @@ x12 = ((e * r) / (m * g)) / solar_mass
 x13 = m * c * c
   where m = 0.01 * (1000 * solar_mass)
         solar_mass = 1.989e30
+
+-- astro4x cosmology
+
+-- chapter 1 space and time
+
+polcyl_dist r1 theta1 z1 r2 theta2 z2 =  sqrt $ dr^2 + r1^2 * dtheta^2 + dz^2
+  where dr = r2 - r1
+        dtheta = theta2 - theta1
+        dz = z2 - z1
+
+
